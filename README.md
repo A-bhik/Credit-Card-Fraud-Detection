@@ -21,22 +21,9 @@ The dataset contains:
 
 Time: Seconds elapsed between the transaction and the first transaction in the dataset.
 
-V1 to V28: Principal component analysis (PCA) transformed features.
-📂 Credit-Card-Fraud-Detection
-│── 📂 data             # Dataset and preprocessing steps
-│── 📂 models           # Trained models and evaluation
-│── 📂 src              # Source code
-│── │── preprocessing.py  # Data cleaning and feature engineering
-│── │── train.py         # Model training and selection
-│── │── evaluate.py      # Performance evaluation
-│── 📜 requirements.txt # Dependencies
-│── 📜 README.md        # Project documentation
-
-Amount: Transaction amount.
 Setup & Installation
 
 1.Clone the repository:
-git clone https://github.com/your-repo-name.git
 cd Credit-Card-Fraud-Detection
 2.Install dependencies:
 pip install -r requirements.txt
