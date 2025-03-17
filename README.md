@@ -38,31 +38,21 @@ python src/evaluate.py
 Model & Techniques Used:-
 
 Feature Engineering: Transaction frequency, spending patterns, location verification.
-
 Class Imbalance Handling: Oversampling (SMOTE) and undersampling.
 
 Machine Learning Models:
 
 Logistic Regression
-
 Random Forest
-
 XGBoost
-
 Evaluation Metrics:
-
 Precision, Recall, F1-score
-
 AUC-ROC Curve
 
 Results
 
 The best model achieved:
-
 High Precision to minimize false positives.
-
 Strong Recall to detect fraud cases effectively.
-
 Optimized F1-score for overall balance.
-
 Class: The target variable (0 for non-fraudulent, 1 for fraudulent transactions
