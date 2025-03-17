@@ -1,0 +1,43 @@
+import zipfile
+import pandas as pd
+
+# Define the file path
+zip_file_path = "/mnt/data/creditcard.csv.zip"
+
+# Extract the contents of the ZIP file
+with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+    zip_ref.extractall("/mnt/data/")
+
+# Identify the extracted file
+extracted_file_name = zip_ref.namelist()[0]
+extracted_file_path = f"/mnt/data/{extracted_file_name}"
+
+# Load the dataset into a DataFrame
+df = pd.read_csv(extracted_file_path)
+
+# Display basic information about the dataset
+df.info(), df.head()
+# Check the class distribution
+class_counts = df["Class"].value_counts(normalize=True)
+class_counts
+from sklearn.preprocessing import StandardScaler
+
+# Standardize 'Amount' and 'Time' columns
+scaler = StandardScaler()
+df[['Time', 'Amount']] = scaler.fit_transform(df[['Time', 'Amount']])
+
+# Display the first few rows after scaling
+df.head()
+from imblearn.over_sampling import SMOTE
+
+# Separate features and target variable
+X = df.drop(columns=["Class"])
+y = df["Class"]
+
+# Apply SMOTE to balance the dataset
+smote = SMOTE(sampling_strategy=0.5, random_state=42)  # 50% fraud samples
+X_resampled, y_resampled = smote.fit_resample(X, y)
+
+# Check the new class distribution
+y_resampled.value_counts(normalize=True)
+
